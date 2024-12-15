@@ -24,10 +24,24 @@ public class UserController {
         return userService.getUser(request.getId());
     }
 
+    @PostMapping("/add")
+    public UserEntity addUser(@RequestBody UserRequest request) {
+        return userService.addUser(request);
+    }
+
     @Setter
     @Getter
     public static class UserIdRequest {
         private int id;
+    }
+
+    @Getter
+    @Setter
+    public static class UserRequest {
+        private String email;
+        private String firstName;
+        private String lastName;
+        private String job;
     }
 }
 
